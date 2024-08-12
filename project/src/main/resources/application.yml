@@ -25,6 +25,20 @@ server:
 #    key-password:
 
 
+# s3
+cloud:
+  aws:
+    s3:
+      bucket-name: ${AWS_S3_BUCKET_NAME}
+    region:
+      static: ${AWS_S3_REGION}
+    stack:
+      auto: false
+    credentials:
+      access-key: ${AWS_ACCESSKEY}
+      secret-key: ${AWS_SCRETKEY}
+      image-url: ${AWS_IMAGEURL}
+
 ---
 # dev
 spring:
