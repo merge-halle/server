@@ -1,4 +1,4 @@
-FROM openjdk:17-oracle
+FROM amazoncorretto:17-alpine
 ENV SPRING_PROFILES_ACTIVE=prod
-COPY auth-0.0.1-SNAPSHOT.jar app.jar
+COPY project-0.0.1-SNAPSHOT.jar app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]
