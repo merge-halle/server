@@ -18,7 +18,7 @@ public class ReviewEntity {
     @Column(name = "review_id")
     private Long id;
 
-    @Column(length = 50000)
+    @Column(length = 50000,columnDefinition="LONGTEXT")
     private String review;
 
     public ReviewResponseDTO toResponseDTO(){
