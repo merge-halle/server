@@ -62,7 +62,7 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         //Todo: 도메인 변경 필요함
-        configuration.setAllowedOrigins(Arrays.asList("http://127.0.0.1:3000", "https://wanted66.netlify.app"));
+        configuration.setAllowedOrigins(Arrays.asList("http://127.0.0.1:3000", "https://merge-halle.netlify.app"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Cache-Control", "Content-Type"));
         configuration.setAllowCredentials(true);
