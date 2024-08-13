@@ -17,6 +17,7 @@ server:
     encoding:
       charset: UTF-8
       force: true
+  domain: http://betatest.p-e.kr
 
   # HTTP ssl 적용
 #  ssl:
