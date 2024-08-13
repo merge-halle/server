@@ -1,6 +1,7 @@
 package dev.changuii.project.entity;
 
 
+import dev.changuii.project.dto.response.ReviewResponseDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,6 +18,14 @@ public class ReviewEntity {
     @Column(name = "review_id")
     private Long id;
 
+    @Column(length = 50000)
     private String review;
+
+    public ReviewResponseDTO toResponseDTO(){
+        return ReviewResponseDTO.builder()
+                .id(this.id)
+                .review(review)
+                .build();
+    }
 
 }

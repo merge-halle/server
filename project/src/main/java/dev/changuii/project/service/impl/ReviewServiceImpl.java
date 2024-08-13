@@ -4,6 +4,7 @@ import dev.changuii.project.dto.OpenAiRequestDTO;
 import dev.changuii.project.dto.ReviewDTO;
 import dev.changuii.project.dto.response.ReviewResponseDTO;
 import dev.changuii.project.entity.QuestionEntity;
+import dev.changuii.project.entity.ReviewEntity;
 import dev.changuii.project.enums.ErrorCode;
 import dev.changuii.project.exception.CustomException;
 import dev.changuii.project.repository.QuestionRepository;
@@ -59,13 +60,14 @@ public class ReviewServiceImpl implements ReviewService {
         LinkedHashMap response = restTemplate.exchange(url, HttpMethod.POST, request, LinkedHashMap.class).getBody();
         List<LinkedHashMap> data = (List<LinkedHashMap>) response.get("choices");
         LinkedHashMap message = (LinkedHashMap) data.get(0).get("message");
-        String[] contents = message.get("content").toString().split("\n");
+        String contents = message.get("content").toString();
 
-        QuestionEntity question = QuestionEntity.builder()
-                .questionList(Arrays.asList(contents)).build();
+        System.out.println(contents);
+        ReviewEntity review = ReviewEntity.builder()
+                .review(contents)
+                .build();
 
-
-
-        return null;
+        return this.reviewRepository.save(review)
+                .toResponseDTO();
     }
 }
