@@ -4,6 +4,8 @@ import dev.changuii.project.dto.QuestionDTO;
 import dev.changuii.project.dto.response.QuestionResponseDTO;
 import dev.changuii.project.dto.OpenAiRequestDTO;
 import dev.changuii.project.entity.QuestionEntity;
+import dev.changuii.project.enums.ErrorCode;
+import dev.changuii.project.exception.CustomException;
 import dev.changuii.project.repository.QuestionRepository;
 import dev.changuii.project.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,6 +63,13 @@ public class QuestionServiceImpl implements QuestionService {
 
         return this.questionRepository
                 .save(question)
+                .toResponseDTO();
+    }
+
+    @Override
+    public QuestionResponseDTO readQuestion(Long questionId) {
+        return this.questionRepository.findById(questionId)
+                .orElseThrow(() -> new CustomException(ErrorCode.QUESTION_NOT_FOUND))
                 .toResponseDTO();
     }
 }

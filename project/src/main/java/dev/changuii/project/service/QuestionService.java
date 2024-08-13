@@ -7,5 +7,5 @@ public interface QuestionService {
 
     public QuestionResponseDTO generateQuestion(QuestionDTO questionDTO);
 
-
+    public QuestionResponseDTO readQuestion(Long questionId);
 }
