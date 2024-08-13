@@ -40,6 +40,10 @@ cloud:
       secret-key: ${AWS_SCRETKEY}
       image-url: ${AWS_IMAGEURL}
 
+# open ai
+openai:
+  api-key: ${OPENAI_APIKEY}
+
 ---
 # dev
 spring:
